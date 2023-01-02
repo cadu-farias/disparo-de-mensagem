@@ -66,7 +66,9 @@ export default{
     display: flex;
     max-width: 500px;
     min-width: 300px;
+    min-height: 100%;
     justify-content: center;
+    padding: 5px 0;
     text-align: center;
     align-items: center;
     flex-direction: column;

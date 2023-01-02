@@ -7,8 +7,8 @@
                 <div v-for="d in data" :key="d.id" class="lista-sessao">
                   <p class="titulo">{{d.sessao}}</p>
                   <div class="colar">
-                      <p>{{d.token}}</p>
-                      <button>Copiar</button>
+                      <input type="text" id="myInput" :value="d.token" style="border: none;">
+                      <button @click="clipBoard(d.id)">Copiar</button>
                   </div>
                 <span>Estado: <strong v-if="d.estado == 'Connected'" style="color: green;">{{ d.estado }}</strong> <strong v-else style="color: red;" >{{ d.estado }}</strong></span>
                   <button @click="apagarSessao(d.id, d.sessao, d.token)" class="btn btn-danger">Deletar</button>
@@ -45,11 +45,13 @@
             headers:{
               'Authorization': `Bearer ${token}`
             }
-          }).then((d)=>{
-            console.log(d)
-          }).catch((e)=>{
-            console.error(e)
           })
+        },
+        clipBoard(){
+            const copyText = document.getElementById("myInput");
+            copyText.select()
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand('copy')
         }
         },
         async created(){

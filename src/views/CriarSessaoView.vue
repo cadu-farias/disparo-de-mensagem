@@ -31,6 +31,7 @@
       },
       methods:{
        async criarSessao(){
+          alert('Iniciando')
           const { data } = await axios.post(`/${this.sessao}/${this.chave}/generate-token`)
           this.token = data.token
           // guardar token e nome da sessão no banco de dados para listar as sessão ativas

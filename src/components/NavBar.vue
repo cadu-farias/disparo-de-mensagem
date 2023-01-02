@@ -7,7 +7,7 @@
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
-            <ul :class="menu">
+            <ul @click="abrirNavBar()" :class="menu">
                 <li>
                     <router-link to="/">Inicio</router-link>
                 </li>

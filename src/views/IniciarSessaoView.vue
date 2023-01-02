@@ -41,7 +41,6 @@
               'Authorization': `Bearer ${this.token}`
             }
           }).then((data) => {
-            console.log(data.data)
           if (data.data.status == "CONNECTED"){
               this.qrcode = false
               this.alerta = "Essa sessão já está conectada!"
@@ -73,7 +72,6 @@
               'Authorization': `Bearer ${this.token}`
             }
           }).then((data)=>{
-            console.log(data.data)
             this.qrcode = data.data.qrcode
           })
         }
